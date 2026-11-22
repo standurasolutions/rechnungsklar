@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Rechnung-Viewer: XRechnung &amp; ZUGFeRD kostenlos öffnen</title>
+<meta name="description" content="XRechnung und ZUGFeRD kostenlos online öffnen und lesen – ohne Upload, ohne Anmeldung. Als PDF speichern oder drucken. Mit automatischer Prüfung.">
+<link rel="canonical" href="https://standurasolutions.github.io/rechnungsklar/e-rechnung-viewer/">
+
+<meta property="og:type" content="website"><meta property="og:title" content="E-Rechnung-Viewer: XRechnung &amp; ZUGFeRD kostenlos öffnen"><meta property="og:description" content="XRechnung und ZUGFeRD kostenlos online öffnen und lesen – ohne Upload, ohne Anmeldung. Als PDF speichern oder drucken. Mit automatischer Prüfung."><meta property="og:url" content="https://standurasolutions.github.io/rechnungsklar/e-rechnung-viewer/"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="Rechnungsklar">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+<link rel="stylesheet" href="/rechnungsklar/assets/css/style.css?v=2026-11-22">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"E-Rechnung-Viewer","url":"https://standurasolutions.github.io/rechnungsklar/e-rechnung-viewer/","description":"XRechnung und ZUGFeRD im Browser öffnen","applicationCategory":"BusinessApplication","operatingSystem":"Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"de"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Werden meine Rechnungen hochgeladen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Die Datei wird ausschließlich lokal in Ihrem Browser verarbeitet. Es findet keine Übertragung an einen Server statt."}},{"@type":"Question","name":"Welche Formate werden unterstützt?","acceptedAnswer":{"@type":"Answer","text":"XRechnung in UBL- und CII-Syntax, ZUGFeRD 2.x / Factur-X als PDF oder XML sowie Peppol BIS Billing 3.0."}},{"@type":"Question","name":"Wie speichere ich die Rechnung als PDF?","acceptedAnswer":{"@type":"Answer","text":"Klicken Sie auf „Drucken / als PDF speichern“ und wählen Sie im Druckdialog „Als PDF speichern“. Archivieren Sie zusätzlich immer die Original-XML."}},{"@type":"Question","name":"Ersetzt die Prüfung den offiziellen Validator?","acceptedAnswer":{"@type":"Answer","text":"Die Prüfung deckt die häufigsten Fehler ab (Pflichtfelder, Summen, Steuer, IBAN). Verbindlich ist der KoSIT-Validator, den Behörden einsetzen."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="top"><div class="wrap nav">
+  <a class="logo" href="/rechnungsklar/">🧾 Rechnungsklar</a>
+  <nav><a href="/rechnungsklar/e-rechnung-viewer/" aria-current="page">Viewer</a><a href="/rechnungsklar/xrechnung-erstellen/">Erstellen</a><a href="/rechnungsklar/e-rechnung-pruefen/">Prüfen</a><a href="/rechnungsklar/ratgeber/">Ratgeber</a><a href="/rechnungsklar/rechnungsprogramme-vergleich/">Programme</a></nav>
+</div></header>
+<main id="main"><section class="wrap section">
+<h1>E-Rechnung-Viewer: XRechnung & ZUGFeRD öffnen</h1>
+<p class="lead">Ziehen Sie eine XML- oder ZUGFeRD-PDF-Datei hierher. Die Rechnung wird lesbar angezeigt und kann als PDF gespeichert werden.</p>
+<div id="drop" class="drop" tabindex="0" role="button" aria-label="Datei auswählen">
+  <p><strong>Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+  <p class="small">XRechnung (UBL/CII), ZUGFeRD/Factur-X (PDF oder XML) · 🔒 Die Datei verlässt Ihr Gerät nicht</p>
+  <input type="file" id="file" accept=".xml,.pdf,application/xml,text/xml,application/pdf" hidden>
+</div>
+<p class="small">Keine Datei zur Hand? <button class="linkbtn" id="demo">Beispielrechnung laden</button></p>
+<div id="result" data-mode="view"></div>
+<aside class="cta" data-cta="viewer"><p class="cta-kicker">Kostenlos &amp; ohne Anmeldung</p><p class="cta-title">XRechnung in 3 Minuten erstellen</p><p>Daten eingeben, prüfen, XML herunterladen. Ihre Angaben bleiben auf Ihrem Gerät.</p><a class="btn" href="/rechnungsklar/xrechnung-erstellen/">Zum Generator</a></aside>
+</section><section class="wrap section"><section class="faq"><h2>Häufige Fragen</h2><details><summary>Werden meine Rechnungen hochgeladen?</summary><p>Nein. Die Datei wird ausschließlich lokal in Ihrem Browser verarbeitet. Es findet keine Übertragung an einen Server statt.</p></details><details><summary>Welche Formate werden unterstützt?</summary><p>XRechnung in UBL- und CII-Syntax, ZUGFeRD 2.x / Factur-X als PDF oder XML sowie Peppol BIS Billing 3.0.</p></details><details><summary>Wie speichere ich die Rechnung als PDF?</summary><p>Klicken Sie auf „Drucken / als PDF speichern“ und wählen Sie im Druckdialog „Als PDF speichern“. Archivieren Sie zusätzlich immer die Original-XML.</p></details><details><summary>Ersetzt die Prüfung den offiziellen Validator?</summary><p>Die Prüfung deckt die häufigsten Fehler ab (Pflichtfelder, Summen, Steuer, IBAN). Verbindlich ist der KoSIT-Validator, den Behörden einsetzen.</p></details></section></section></main>
+<footer class="foot"><div class="wrap">
+  <div class="cols">
+    <div><strong>Rechnungsklar</strong><p>E-Rechnungen kostenlos öffnen, prüfen und erstellen – 100 % im Browser. Ihre Rechnungsdaten verlassen nie Ihr Gerät.</p></div>
+    <div><strong>Werkzeuge</strong><a href="/rechnungsklar/e-rechnung-viewer/">E-Rechnung-Viewer</a><a href="/rechnungsklar/xrechnung-erstellen/">XRechnung erstellen</a><a href="/rechnungsklar/e-rechnung-pruefen/">E-Rechnung prüfen</a></div>
+    <div><strong>Wissen</strong><a href="/rechnungsklar/ratgeber/">Ratgeber</a><a href="/rechnungsklar/branchen/">Nach Branche</a><a href="/rechnungsklar/rechnungsprogramme-vergleich/">Rechnungsprogramme</a></div>
+    <div><strong>Rechtliches</strong><a href="/rechnungsklar/impressum/">Impressum</a><a href="/rechnungsklar/datenschutz/">Datenschutz</a></div>
+  </div>
+  <p class="small">Alle Angaben ohne Gewähr; keine Steuer- oder Rechtsberatung. Stand der Rechtslage: November 2026. </p>
+</div></footer>
+<script>window.RK={"base":"/rechnungsklar","variants":[{"id":"a","text":"Rechnungen künftig automatisch als E-Rechnung schreiben"},{"id":"b","text":"Pflicht ab 2027? So sind Sie in 10 Minuten startklar"}],"gc":false};</script>
+<script type="module" src="/rechnungsklar/assets/js/app.mjs?v=2026-11-22"></script>
+<script type="module" src="/rechnungsklar/assets/js/viewer.mjs?v=2026-11-22"></script>
+
+</body></html>

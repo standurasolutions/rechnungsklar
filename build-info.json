@@ -1,0 +1,13 @@
+{
+  "buildDate": "2026-11-22",
+  "pages": 50,
+  "monetization": {
+    "impressumComplete": false,
+    "affiliates": [],
+    "product": false
+  },
+  "variants": [
+    "a",
+    "b"
+  ]
+}

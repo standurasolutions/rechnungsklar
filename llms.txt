@@ -1,0 +1,19 @@
+# Rechnungsklar
+
+> E-Rechnungen kostenlos öffnen, prüfen und erstellen – 100 % im Browser. Kostenlose Werkzeuge für E-Rechnungen (XRechnung, ZUGFeRD) in Deutschland, die vollständig im Browser laufen.
+
+## Werkzeuge
+- [E-Rechnung-Viewer](https://standurasolutions.github.io/rechnungsklar/e-rechnung-viewer/): XRechnung/ZUGFeRD öffnen
+- [XRechnung erstellen](https://standurasolutions.github.io/rechnungsklar/xrechnung-erstellen/): XRechnung 3.0 generieren
+- [E-Rechnung prüfen](https://standurasolutions.github.io/rechnungsklar/e-rechnung-pruefen/): Validierung
+
+## Ratgeber
+- [E-Rechnungspflicht 2027: Wer ab Januar umstellen muss](https://standurasolutions.github.io/rechnungsklar/ratgeber/e-rechnung-pflicht-2027/): Ab 1.1.2027 müssen Unternehmen mit mehr als 800.000 € Vorjahresumsatz E-Rechnungen ausstellen, ab 2028 alle. Fristen, Ausnahmen und Checkliste.
+- [XRechnung vs. ZUGFeRD: Unterschiede einfach erklärt](https://standurasolutions.github.io/rechnungsklar/ratgeber/xrechnung-vs-zugferd/): XRechnung ist reines XML, ZUGFeRD ist ein PDF mit eingebetteten XML-Daten. Welches Format Sie wann brauchen – mit Entscheidungshilfe.
+- [E-Rechnung empfangen: Was Unternehmen seit 2025 brauchen](https://standurasolutions.github.io/rechnungsklar/ratgeber/e-rechnung-empfangen/): Seit 1.1.2025 muss jedes Unternehmen E-Rechnungen empfangen können. Ein E-Mail-Postfach genügt – so lesen, prüfen und archivieren Sie XRechnung und ZUGFeRD.
+- [E-Rechnung für Kleinunternehmer: Was gilt nach § 19 UStG?](https://standurasolutions.github.io/rechnungsklar/ratgeber/kleinunternehmer-e-rechnung/): Kleinunternehmer müssen keine E-Rechnungen ausstellen, aber empfangen. Was das konkret bedeutet und wie Sie freiwillig eine XRechnung mit § 19-Hinweis erstellen.
+- [Pflichtangaben einer XRechnung: Die komplette Checkliste](https://standurasolutions.github.io/rechnungsklar/ratgeber/pflichtangaben-e-rechnung/): Welche Felder eine XRechnung enthalten muss – von Käuferreferenz (BT-10) bis elektronischer Adresse (BT-34/49). Mit häufigen Ablehnungsgründen.
+- [E-Rechnungen archivieren: GoBD, 8 Jahre und das Original](https://standurasolutions.github.io/rechnungsklar/ratgeber/e-rechnung-archivieren/): Welche Datei bei einer E-Rechnung das Original ist, wie lange Sie aufbewahren müssen und warum ein Ausdruck nicht reicht.
+- [Ist eine PDF-Rechnung eine E-Rechnung? Der Unterschied](https://standurasolutions.github.io/rechnungsklar/ratgeber/pdf-ist-keine-e-rechnung/): Warum eine PDF per E-Mail ab 2027/2028 im B2B nicht mehr reicht, was eine „sonstige Rechnung“ ist und wie Sie umstellen.
+- [Leitweg-ID: Was sie ist und wo sie in die XRechnung gehört](https://standurasolutions.github.io/rechnungsklar/ratgeber/leitweg-id/): Die Leitweg-ID identifiziert öffentliche Rechnungsempfänger. Aufbau, wo Sie sie bekommen und in welches Feld sie gehört.
+- [Abschlags- und Schlussrechnung als E-Rechnung](https://standurasolutions.github.io/rechnungsklar/ratgeber/abschlagsrechnung-e-rechnung/): Wie Abschlagsrechnungen, Teilrechnungen und Schlussrechnungen als XRechnung gekennzeichnet und Vorauszahlungen korrekt verrechnet werden.
