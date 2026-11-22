@@ -376,7 +376,10 @@ export const XRECHNUNG_GUIDELINE = 'urn:cen.eu:en16931:2017#compliant#urn:xeinka
 function partyXml(p, role) {
   const taxRegs = [p.vatId && `<ram:SpecifiedTaxRegistration><ram:ID schemeID="VA">${esc(p.vatId)}</ram:ID></ram:SpecifiedTaxRegistration>`, p.taxNumber && `<ram:SpecifiedTaxRegistration><ram:ID schemeID="FC">${esc(p.taxNumber)}</ram:ID></ram:SpecifiedTaxRegistration>`].filter(Boolean).join('');
   const contact = role === 'seller' ? `<ram:DefinedTradeContact>${el('ram:PersonName', p.contactName)}${p.contactPhone ? `<ram:TelephoneUniversalCommunication>${el('ram:CompleteNumber', p.contactPhone)}</ram:TelephoneUniversalCommunication>` : ''}${p.contactEmail ? `<ram:EmailURIUniversalCommunication>${el('ram:URIID', p.contactEmail)}</ram:EmailURIUniversalCommunication>` : ''}</ram:DefinedTradeContact>` : '';
-  return `${el('ram:Name', p.name)}${p.legalId ? `<ram:SpecifiedLegalOrganization>${el('ram:ID', p.legalId)}</ram:SpecifiedLegalOrganization>` : ''}${contact}<ram:PostalTradeAddress>${el('ram:PostcodeCode', p.zip)}${el('ram:LineOne', p.street)}${el('ram:CityName', p.city)}${el('ram:CountryID', p.country || 'DE')}</ram:PostalTradeAddress>${p.electronicAddress ? `<ram:URIUniversalCommunication><ram:URIID schemeID="EM">${esc(p.electronicAddress)}</ram:URIID></ram:URIUniversalCommunication>` : ''}${taxRegs}`;
+  // BR-CO-26: Ohne USt-IdNr. muss eine Verkäuferkennung (BT-29) oder Registernummer (BT-30) vorhanden sein.
+  // Fallback für Kleinunternehmer: Steuernummer zusätzlich als Verkäuferkennung (BT-29).
+  const sellerId = role === 'seller' ? (p.id || (!p.vatId && !p.legalId ? p.taxNumber : '')) : p.id;
+  return `${el('ram:ID', sellerId)}${el('ram:Name', p.name)}${p.legalId ? `<ram:SpecifiedLegalOrganization>${el('ram:ID', p.legalId)}</ram:SpecifiedLegalOrganization>` : ''}${contact}<ram:PostalTradeAddress>${el('ram:PostcodeCode', p.zip)}${el('ram:LineOne', p.street)}${el('ram:CityName', p.city)}${el('ram:CountryID', p.country || 'DE')}</ram:PostalTradeAddress>${p.electronicAddress ? `<ram:URIUniversalCommunication><ram:URIID schemeID="EM">${esc(p.electronicAddress)}</ram:URIID></ram:URIUniversalCommunication>` : ''}${taxRegs}`;
 }
 
 export function buildXRechnungCII(input) {
@@ -503,6 +506,7 @@ export function validateInvoice(inv) {
   for (const x of inv.taxes || []) {
     if (x.category === 'S' && x.basis != null && x.amount != null && x.rate != null && !near(round2((x.basis * x.rate) / 100), x.amount)) err('BR-CO-17', `Steuerbetrag ${x.rate} %: ${x.amount} ≠ ${round2((x.basis * x.rate) / 100)}.`);
     if (['E', 'AE', 'K', 'G', 'O'].includes(x.category) && !x.exemptionReason) warn('BR-E-10', `Für Kategorie ${x.category} (${TAX_CATEGORIES[x.category]}) sollte ein Befreiungsgrund angegeben werden.`);
+    if (!(inv.seller?.vatId || inv.seller?.id || inv.seller?.legalId)) { if (!out.some((o) => o.rule === 'BR-CO-26')) err('BR-CO-26', 'Es fehlt eine Verkäuferkennung: USt-IdNr. (BT-31), Kennung (BT-29) oder Registernummer (BT-30).'); }
     if (x.category === 'S' && !(inv.seller?.vatId || inv.seller?.taxNumber)) err('BR-S-02', 'Bei Regelbesteuerung muss die USt-IdNr. oder Steuernummer des Verkäufers angegeben sein (§ 14 Abs. 4 UStG).');
     if (x.category === 'AE' && !inv.buyer?.vatId && inv.buyer?.country !== 'DE') warn('BR-AE-02', 'Bei Reverse Charge sollte die USt-IdNr. des Käufers angegeben sein.');
   }

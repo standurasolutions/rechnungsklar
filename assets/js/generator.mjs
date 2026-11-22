@@ -30,7 +30,8 @@ root.innerHTML = `
   <fieldset><legend>2. Ihre Firmendaten</legend><div class="row">
     ${f('seller.name', 'Firmenname', { req: true })}${f('seller.street', 'Straße & Hausnr.', { req: true })}
     ${f('seller.zip', 'PLZ', { req: true })}${f('seller.city', 'Ort', { req: true })}
-    ${f('seller.vatId', 'USt-IdNr.', { ph: 'DE123456789' })}${f('seller.taxNumber', 'oder Steuernummer', { ph: '12/345/67890' })}
+    ${f('seller.vatId', 'USt-IdNr.', { ph: 'DE123456789' })}${f('seller.taxNumber', 'oder Steuernummer', { ph: '12/345/67890', help: 'Ohne USt-IdNr. wird die Steuernummer auch als Verkäuferkennung (BT-29) verwendet.' })}
+    ${f('seller.legalId', 'Handelsregisternummer (optional)', { ph: 'HRB 12345' })}${f('seller.id', 'Ihre Lieferantennummer beim Kunden (optional)')}
     ${f('seller.contactName', 'Ansprechpartner', { req: true })}${f('seller.contactPhone', 'Telefon', { req: true })}
     ${f('seller.contactEmail', 'E-Mail', { type: 'email', req: true, help: 'Wird auch als elektronische Adresse (BT-34) verwendet.' })}
   </div>
@@ -88,7 +89,7 @@ function collect() {
     number: v('number'), typeCode: v('typeCode'), issueDate: v('issueDate'), deliveryDate: v('deliveryDate'), dueDate: v('dueDate'),
     buyerReference: v('buyerReference'), orderReference: v('orderReference'), paymentTerms: v('paymentTerms'), notes: [v('note')].filter(Boolean),
     prepaid: parseFloat(v('prepaid')) || 0, currency: 'EUR',
-    seller: { name: v('seller.name'), street: v('seller.street'), zip: v('seller.zip'), city: v('seller.city'), country: 'DE', vatId: v('seller.vatId').replace(/\s/g, ''), taxNumber: v('seller.taxNumber'), contactName: v('seller.contactName'), contactPhone: v('seller.contactPhone'), contactEmail: v('seller.contactEmail'), electronicAddress: v('seller.contactEmail') },
+    seller: { name: v('seller.name'), street: v('seller.street'), zip: v('seller.zip'), city: v('seller.city'), country: 'DE', vatId: v('seller.vatId').replace(/\s/g, ''), taxNumber: v('seller.taxNumber'), legalId: v('seller.legalId'), id: v('seller.id'), contactName: v('seller.contactName'), contactPhone: v('seller.contactPhone'), contactEmail: v('seller.contactEmail'), electronicAddress: v('seller.contactEmail') },
     buyer: { name: v('buyer.name'), street: v('buyer.street'), zip: v('buyer.zip'), city: v('buyer.city'), country: 'DE', vatId: v('buyer.vatId').replace(/\s/g, ''), electronicAddress: v('buyer.electronicAddress') },
     payment: { code: '58', iban: v('payment.iban'), bic: v('payment.bic'), accountName: v('payment.accountName') || v('seller.name') },
     lines,
@@ -116,7 +117,7 @@ function check() {
 }
 
 // Speichern nur auf ausdrücklichen Wunsch (Checkbox)
-const SELLER_KEYS = ['seller.name', 'seller.street', 'seller.zip', 'seller.city', 'seller.vatId', 'seller.taxNumber', 'seller.contactName', 'seller.contactPhone', 'seller.contactEmail', 'payment.iban', 'payment.bic', 'payment.accountName', 'paymentTerms'];
+const SELLER_KEYS = ['seller.name', 'seller.street', 'seller.zip', 'seller.city', 'seller.vatId', 'seller.taxNumber', 'seller.legalId', 'seller.contactName', 'seller.contactPhone', 'seller.contactEmail', 'payment.iban', 'payment.bic', 'payment.accountName', 'paymentTerms'];
 function saveSeller() { try { localStorage.setItem(STORE, JSON.stringify(Object.fromEntries(SELLER_KEYS.map((k) => [k, q(k).value])))); } catch {} }
 function loadSeller() { try { const s = JSON.parse(localStorage.getItem(STORE) || 'null'); if (s) { SELLER_KEYS.forEach((k) => setVal(k, s[k])); document.getElementById('remember').checked = true; return true; } } catch {} return false; }
 document.getElementById('forget').addEventListener('click', () => { try { localStorage.removeItem(STORE); } catch {} document.getElementById('remember').checked = false; alert('Gespeicherte Firmendaten wurden gelöscht.'); });
